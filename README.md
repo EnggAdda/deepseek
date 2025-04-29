@@ -85,3 +85,26 @@ spring.servlet.multipart.max-request-size=10MB
 
 ....................
 
+
+
+
+.............................
+................................
+
+
+
+# Step 1: Add upstream remote if not already added
+git remote add upstream https://github.com/ORIGINAL_REPO_OWNER/REPO_NAME.git
+
+# Step 2: Fetch the latest from upstream
+git fetch upstream
+
+# Step 3: Checkout your problematic branch
+git checkout release/25.1_features
+
+# Step 4: Hard reset to upstream's version of this branch (or main if it doesn't exist)
+git reset --hard upstream/main  # or upstream/release/25.1_features if exists
+
+# Step 5: Force push to your fork
+git push origin release/25.1_features --force
+
